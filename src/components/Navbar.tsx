@@ -1,11 +1,12 @@
 import { motion } from "motion/react";
-import { User, Code, Briefcase, Mail } from "lucide-react";
+import { User, Code, Briefcase, Mail, Award } from "lucide-react";
 
 export default function Navbar() {
   const navItems = [
     { name: "Readme", href: "#readme", icon: User },
     { name: "Projects", href: "#projects", icon: Code },
     { name: "Experience", href: "#experience", icon: Briefcase },
+    { name: "Certs", href: "#certifications", icon: Award },
     { name: "Contact", href: "#contact", icon: Mail },
   ];
 

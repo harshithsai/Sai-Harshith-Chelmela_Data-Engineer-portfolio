@@ -37,7 +37,7 @@ export default function Hero() {
           <div className="flex items-center gap-3">
             <span className="w-12 h-[1px] bg-brand-accent/30"></span>
             <span className="text-sm uppercase tracking-[0.3em] font-mono text-white/50">
-              Associate Data Engineer @ Logic Pursuits
+              Data engineer and data analyst
             </span>
           </div>
 

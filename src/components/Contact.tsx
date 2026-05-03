@@ -17,27 +17,38 @@ export default function Contact() {
     setStatus("loading");
 
     try {
-      // Note: These IDs should be configured in EmailJS dashboard
-      // I'm using environment variables which the user can set later
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || "default_service";
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_id";
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "public_key";
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-      // If keys aren't set, we show a fast simulation for testing
-      if (!import.meta.env.VITE_EMAILJS_PUBLIC_KEY) {
-        console.warn("EmailJS keys not found. Simulation mode enabled. Setup keys in Settings for real emails.");
-        await new Promise(resolve => setTimeout(resolve, 800)); // Reduced from 1500 for snapier feel
+      // Simulation mode if keys are missing or placeholders
+      if (!publicKey || publicKey === "public_key" || !serviceId || !templateId) {
+        console.log("SIMULATED EMAIL DATA:", {
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          user_email: formData.email,
+          message: formData.message,
+          variables: ["first_name", "last_name", "user_email", "message"]
+        });
+        console.warn("EmailJS configuration incomplete. Simulation mode active. Check your .env setup for real delivery.");
+        await new Promise(resolve => setTimeout(resolve, 1500));
         setStatus("success");
         setFormData({ firstName: "", lastName: "", email: "", message: "" });
         return;
       }
 
+      // Sending all variables to EmailJS
+      // IMPORTANT: You must use these exact variable names in your EmailJS Template:
+      // {{first_name}}, {{last_name}}, {{user_email}}, {{message}}
       await emailjs.send(
         serviceId,
         templateId,
         {
-          from_name: `${formData.firstName} ${formData.lastName}`,
-          from_email: formData.email,
+          from_name: `${formData.firstName} ${formData.lastName}`, // Used for the "display name"
+          from_email: formData.email, // Visitor's email
+          reply_to: formData.email,   // VERY IMPORTANT: Allows you to reply directly to the visitor
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          user_email: formData.email,
           message: formData.message,
           to_email: "harshithchinnu1079@gmail.com"
         },
@@ -46,13 +57,25 @@ export default function Contact() {
 
       setStatus("success");
       setFormData({ firstName: "", lastName: "", email: "", message: "" });
-      setTimeout(() => setStatus("idle"), 5000);
-    } catch (error) {
-      console.error("Email error:", error);
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error: any) {
+      console.error("EmailJS Error:", error);
+      
+      const errorText = error?.text || "";
+      console.error("Error text from EmailJS:", errorText);
+
+      // Handle the specific 412 Gmail Scopes error
+      if (errorText.includes("insufficient authentication scopes") || error?.status === 412) {
+        setStatus("auth_error" as any);
+      } else {
+        setStatus("error");
+      }
+      
+      setTimeout(() => setStatus("idle"), 10000);
     }
   };
+
+  const isAuthError = status === ("auth_error" as any);
+  const isGenericError = status === "error";
 
   return (
     <motion.section 
@@ -75,7 +98,7 @@ export default function Contact() {
 
             <p className="text-xl text-gray-400 max-w-md leading-relaxed">
               Open for new opportunities, collaborations, or just a coffee chat 
-              about the future of the web.
+              about data systems and analytics.
             </p>
 
             <div className="space-y-6 pt-8">
@@ -174,10 +197,27 @@ export default function Contact() {
                 />
               </div>
               
-              {status === "error" && (
-                <div className="flex items-center gap-2 text-red-500 text-sm">
-                  <AlertCircle size={16} />
-                  <span>Something went wrong. Please try again.</span>
+              {isAuthError && (
+                <div className="flex flex-col gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-2xl animate-shake">
+                  <div className="flex items-center gap-2 text-red-500 text-sm font-medium">
+                    <AlertCircle size={16} />
+                    <span>Gmail API: Permission Required</span>
+                  </div>
+                  <p className="text-[11px] text-red-400/80 leading-relaxed">
+                    EmailJS needs permission to send on your behalf. Go to EmailJS Dashboard → Email Services → [Your Gmail Service] → Edit → Re-connect and ensure "Send email on your behalf" is checked.
+                  </p>
+                </div>
+              )}
+
+              {isGenericError && (
+                <div className="flex flex-col gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-2xl">
+                  <div className="flex items-center gap-2 text-red-500 text-sm font-medium">
+                    <AlertCircle size={16} />
+                    <span>Submission Failed</span>
+                  </div>
+                  <p className="text-[11px] text-red-400/80 leading-relaxed">
+                    Something went wrong. Please check your network connection or try again later.
+                  </p>
                 </div>
               )}
 

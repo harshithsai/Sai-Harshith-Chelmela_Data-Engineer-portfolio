@@ -100,7 +100,7 @@ export default function Skills() {
         </div>
 
         {/* Certifications Section */}
-        <div className="mt-32 border-t border-brand-border/30 pt-20">
+        <div id="certifications" className="mt-32 border-t border-brand-border/30 pt-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="space-y-4 text-center md:text-left">
               <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-white/50">Verified Expertise</h2>

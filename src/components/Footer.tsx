@@ -13,7 +13,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm">
+          <div className="grid grid-cols-2 gap-12 text-sm">
             <div className="space-y-4">
               <p className="font-mono text-xs uppercase tracking-widest text-white/30">Connect</p>
               <ul className="space-y-2 text-white/60">
@@ -30,19 +30,12 @@ export default function Footer() {
                 <li><a href="#experience" className="hover:text-white transition-colors">Experience</a></li>
               </ul>
             </div>
-            <div className="space-y-4 col-span-2 md:col-span-1">
-              <p className="font-mono text-xs uppercase tracking-widest text-white/30">Legal</p>
-              <ul className="space-y-2 text-white/60">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Use</a></li>
-              </ul>
-            </div>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center mt-20 pt-8 border-t border-brand-border/30 gap-4">
           <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">
-            © 2026 Portfolio Applet. All rights reserved.
+            © 2026 Sai Harshith Chelmela Portfolio™ | All Rights Reserved.
           </p>
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
