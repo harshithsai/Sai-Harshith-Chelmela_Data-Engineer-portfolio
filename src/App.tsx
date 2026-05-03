@@ -9,6 +9,7 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
+import ParticlesBg from "./components/ui/particles-bg";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -77,6 +78,7 @@ export default function App() {
           <LoadingScreen key="loader" />
         ) : (
           <div key="content" className="relative">
+            <ParticlesBg />
             <div className="relative z-10 w-full overflow-x-hidden">
               <Navbar />
               

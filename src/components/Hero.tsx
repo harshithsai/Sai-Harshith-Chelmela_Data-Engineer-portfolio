@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { ArrowDownRight, Github, Linkedin, Database, BarChart3, FileText } from "lucide-react";
 
 export default function Hero() {
-  const name = "Chelmela Sai Harshith";
+  const name = "Sai Harshith Chelmela...";
   const [displayText, setDisplayText] = useState("");
 
   const SOCIAL_LINKS = {
@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center px-6 pt-20 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center px-6 pt-[84px] md:pt-[100px] overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.98 }}
@@ -49,24 +49,28 @@ export default function Hero() {
 
           <div className="grid md:grid-cols-2 gap-12 pt-12">
             <div className="space-y-6">
-              <p className="text-xl md:text-2xl font-light text-gray-400 leading-relaxed max-w-xl">
-                Hi, I'm{" "}
-                <span className="text-white font-medium inline-flex items-center whitespace-pre-wrap">
-                  {displayText}
-                  <motion.span
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: [1, 0, 1] }}
-                    transition={{
-                      duration: 0.8,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="ml-0.5 inline-block w-[2px] h-[1.2em] bg-brand-accent shadow-[0_0_8px_rgba(var(--color-brand-accent),0.6)] align-middle"
-                  />
-                </span>. 
-                I build the distributed pipelines and cloud-native architectures that power high-velocity intelligence. 
-                Specializing in Snowflake, Databricks, and real-time streaming to turn complexity into clarity.
-              </p>
+              <div className="text-xl md:text-2xl font-light text-gray-400 leading-relaxed max-w-xl">
+                <p>
+                  Hi, I'm{" "}
+                  <span className="text-white font-medium inline-flex items-center whitespace-pre-wrap">
+                    {displayText}
+                    <motion.span
+                      initial={{ opacity: 1 }}
+                      animate={{ opacity: [1, 0, 1] }}
+                      transition={{
+                        duration: 0.8,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                      className="ml-0.5 inline-block w-[2px] h-[1.2em] bg-brand-accent shadow-[0_0_8px_rgba(var(--color-brand-accent),0.6)] align-middle"
+                    />
+                  </span>
+                </p>
+                <p className="mt-4">
+                  I build the distributed pipelines and cloud-native architectures that power high-velocity intelligence. 
+                  Specializing in Snowflake, Databricks, and real-time streaming to turn complexity into clarity.
+                </p>
+              </div>
               
               <div className="flex flex-wrap items-center gap-6 pt-4">
                 <a href="#contact" className="group flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-medium transition-transform hover:scale-105">

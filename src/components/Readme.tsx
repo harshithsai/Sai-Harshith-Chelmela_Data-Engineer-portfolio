@@ -27,7 +27,7 @@ export default function Readme() {
   return (
     <motion.section 
       id="readme" 
-      className="py-24 px-6 bg-brand-bg relative overflow-hidden"
+      className="py-24 px-6 bg-transparent relative overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.1 }}
