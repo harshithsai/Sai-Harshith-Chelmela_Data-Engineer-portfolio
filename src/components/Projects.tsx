@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
-import behaviorAnalyticsImg from "../assets/images/behavior-analytics.png";
 
 const projects = [
   {
@@ -8,7 +7,7 @@ const projects = [
     category: "Data Engineering / Real-Time",
     description: "Built a high-velocity Lambda architecture processing 10K+ events/sec with <30s latency using Kafka, PySpark, and Snowflake. Automated pipeline status monitoring and data quality testing via dbt and Airflow.",
     tags: ["Kafka", "PySpark", "Snowflake", "dbt", "Airflow", "Lambda"],
-    image: behaviorAnalyticsImg,
+    image: "/projects/behavior-analytics.png",
     github: "https://github.com/harshithsai/Real_Time_User_behaviour_analytics",
     className: "md:col-span-2 md:row-span-2"
   },
