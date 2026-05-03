@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
+import behaviorAnalyticsImg from "../assets/images/behavior-analytics.png";
 
 const projects = [
   {
@@ -7,7 +8,7 @@ const projects = [
     category: "Data Engineering / Real-Time",
     description: "Built a high-velocity Lambda architecture processing 10K+ events/sec with <30s latency using Kafka, PySpark, and Snowflake. Automated pipeline status monitoring and data quality testing via dbt and Airflow.",
     tags: ["Kafka", "PySpark", "Snowflake", "dbt", "Airflow", "Lambda"],
-    image: "/projects/behavior-analytics.png",
+    image: behaviorAnalyticsImg,
     github: "https://github.com/harshithsai/Real_Time_User_behaviour_analytics",
     className: "md:col-span-2 md:row-span-2"
   },
@@ -95,7 +96,13 @@ export default function Projects() {
               <img 
                 src={project.image} 
                 alt={project.title} 
-                className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 group-hover:brightness-75 transition-all duration-700" 
+                className="w-full h-full object-cover brightness-[0.4] group-hover:brightness-[0.7] group-hover:scale-105 transition-all duration-700" 
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  if (!target.src.includes('stock-fallback')) {
+                    target.src = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80&fallback=true";
+                  }
+                }}
               />
             </motion.div>
           ))}
