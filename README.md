@@ -2,6 +2,7 @@
 Harshith Portfolio!
 
 **✨ Features**
+
 Custom Loading Screen: "SH." logo with a motion-tracking circle animation.
 
 EmailJS Integration: Real-time professional contact form with custom variable mapping (first_name, last_name, user_email).
