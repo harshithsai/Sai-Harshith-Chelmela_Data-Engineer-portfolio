@@ -45,9 +45,10 @@ export default function Readme() {
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="space-y-12">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="space-y-6"
             >
               <h3 className="text-4xl md:text-6xl font-display text-white leading-tight">
@@ -64,11 +65,15 @@ export default function Readme() {
               {highlights.map((item, i) => (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ delay: i * 0.1 }}
-                  className="p-8 rounded-3xl border border-brand-border bg-white/[0.02] hover:bg-white/[0.04] transition-colors group"
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ 
+                    duration: 1.5, 
+                    delay: 0.2 + (i * 0.2), 
+                    ease: [0.22, 1, 0.36, 1] 
+                  }}
+                  className="p-8 rounded-3xl border border-brand-border bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-700 group"
                 >
                   <Code2 className="text-brand-accent/40 group-hover:text-brand-accent transition-colors mb-4" size={24} />
                   <h4 className="text-xl text-white font-medium mb-3">{item.title}</h4>

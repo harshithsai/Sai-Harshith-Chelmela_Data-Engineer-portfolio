@@ -1,25 +1,20 @@
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-Harshith Portfolio!
+# Run and deploy your AI Studio app
 
-**✨ Features**
+This contains everything you need to run your app locally.
 
-Custom Loading Screen: "SH." logo with a motion-tracking circle animation.
+View your app in AI Studio: https://ai.studio/apps/d0659957-e29c-4d87-ba70-6220e774fee3
 
-EmailJS Integration: Real-time professional contact form with custom variable mapping (first_name, last_name, user_email).
+## Run Locally
 
-Responsive Architecture: Fully optimized for Desktop, Tablet, and Mobile.
-
-Modern UI: Smooth scrolling, glassmorphism effects, and custom SVG favicon.
+**Prerequisites:**  Node.js
 
 
-**🛠️ Tech Stack**
-
-Framework: React 18
-
-Styling: Tailwind CSS
-
-Animations: Framer Motion
-
-Icons: Lucide React
-
-Contact Service: EmailJS
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
