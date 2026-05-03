@@ -19,22 +19,55 @@ export default function App() {
       setLoading(false);
     }, 2500);
 
-    // Smooth scroll behavior for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e: any) {
+    // Custom smooth scroll behavior for anchor links
+    const handleSmoothScroll = (e: MouseEvent) => {
+      const anchor = e.currentTarget as HTMLAnchorElement;
+      const href = anchor.getAttribute('href');
+      
+      if (href && href.startsWith('#')) {
         e.preventDefault();
-        const href = e.currentTarget.getAttribute('href');
-        if (!href) return;
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          const startPosition = window.pageYOffset;
+          const distance = targetPosition - startPosition;
+          let startTime: number | null = null;
+          const duration = 1200; // Increased duration for a slower, smoother roll
+
+          const animation = (currentTime: number) => {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+          };
+
+          // Easing function for a more premium feel
+          function easeInOutCubic(t: number, b: number, c: number, d: number) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t * t + b;
+            t -= 2;
+            return c / 2 * (t * t * t + 2) + b;
+          }
+
+          requestAnimationFrame(animation);
         }
-      });
+      }
+    };
+
+    const anchors = document.querySelectorAll('a[href^="#"]');
+    anchors.forEach(anchor => {
+      anchor.addEventListener('click', handleSmoothScroll as any);
     });
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      anchors.forEach(anchor => {
+        anchor.removeEventListener('click', handleSmoothScroll as any);
+      });
+    };
   }, []);
 
   return (

@@ -50,9 +50,12 @@ export default function Navbar() {
             }}
           />
           
-          <div className="text-white font-display font-bold text-xl tracking-tighter">
+          <a 
+            href="#hero" 
+            className="text-white font-display font-bold text-xl tracking-tighter hover:opacity-80 transition-opacity cursor-pointer z-20"
+          >
             SH<span className="text-white/30">.</span>
-          </div>
+          </a>
           <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <a

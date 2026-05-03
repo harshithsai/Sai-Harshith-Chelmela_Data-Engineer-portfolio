@@ -4,9 +4,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="space-y-6 text-center md:text-left">
-            <div className="text-white font-display font-bold text-3xl tracking-tighter">
+            <a 
+              href="#hero" 
+              className="text-white font-display font-bold text-3xl tracking-tighter hover:opacity-80 transition-opacity cursor-pointer inline-block"
+            >
               SH<span className="text-white/30">.</span>
-            </div>
+            </a>
             <p className="text-gray-500 text-sm max-w-sm tracking-wide">
               Crafting premium digital experiences through thoughtful design and robust engineering. 
               Always building for the future.
