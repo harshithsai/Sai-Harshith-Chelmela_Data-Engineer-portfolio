@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { ExternalLink, Github } from "lucide-react";
+import behaviorAnalyticsImg from "../assets/images/behavior-analytics.png";
 
 const projects = [
   {
@@ -7,7 +8,7 @@ const projects = [
     category: "Data Engineering / Real-Time",
     description: "Built a high-velocity Lambda architecture processing 10K+ events/sec with <30s latency using Kafka, PySpark, and Snowflake. Automated pipeline status monitoring and data quality testing via dbt and Airflow.",
     tags: ["Kafka", "PySpark", "Snowflake", "dbt", "Airflow", "Lambda"],
-    image: "/projects/behavior-analytics.png",
+    image: behaviorAnalyticsImg,
     github: "https://github.com/harshithsai/Real_Time_User_behaviour_analytics",
     className: "md:col-span-2 md:row-span-2"
   },
@@ -34,10 +35,10 @@ export default function Projects() {
     <motion.section 
       id="projects" 
       className="py-32 px-6"
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
