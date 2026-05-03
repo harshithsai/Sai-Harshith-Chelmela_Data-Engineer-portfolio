@@ -7,7 +7,7 @@ const projects = [
     category: "Data Engineering / Real-Time",
     description: "Built a high-velocity Lambda architecture processing 10K+ events/sec with <30s latency using Kafka, PySpark, and Snowflake. Automated pipeline status monitoring and data quality testing via dbt and Airflow.",
     tags: ["Kafka", "PySpark", "Snowflake", "dbt", "Airflow", "Lambda"],
-    image: "/src/assets/images/regenerated_image_1777810009806.png",
+    image: "/projects/behavior-analytics.png",
     github: "https://github.com/harshithsai/Real_Time_User_behaviour_analytics",
     className: "md:col-span-2 md:row-span-2"
   },
@@ -16,7 +16,7 @@ const projects = [
     category: "Professional / Analytics",
     description: "Built an automated Power BI system for resource tracking and gap analysis. Integrated SharePoint data via Power Query with fully automated refresh logic.",
     tags: ["Power BI", "Power Query", "SharePoint", "DAX"],
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     className: "md:col-span-1 md:row-span-1"
   },
   {
@@ -24,7 +24,7 @@ const projects = [
     category: "Full Stack / Automation",
     description: "Automated e-commerce scraping system using Puppeteer and Node.js. Integrated automated email alerts for real-time price drop notifications.",
     tags: ["MERN", "Puppeteer", "Node.js", "Nodemailer"],
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
     className: "md:col-span-1 md:row-span-1"
   }
 ];
