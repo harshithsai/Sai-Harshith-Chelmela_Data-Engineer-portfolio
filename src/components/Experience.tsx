@@ -26,10 +26,10 @@ export default function Experience() {
     <motion.section 
       id="experience" 
       className="py-32 px-6 bg-brand-surface/30"
-      initial={{ opacity: 0, y: 80 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: false, amount: 0.1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-[1fr_2fr] gap-16">
@@ -50,8 +50,8 @@ export default function Experience() {
                 key={index}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: false }}
+                transition={{ delay: index * 0.1, duration: 0.8, ease: "easeOut" }}
                 className="group relative border-l-2 border-brand-border pl-12 pb-16 last:pb-0"
               >
                 <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full border-2 border-brand-border bg-brand-bg group-hover:border-white transition-colors" />

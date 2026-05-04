@@ -81,10 +81,10 @@ export default function Contact() {
     <motion.section 
       id="contact" 
       className="py-32 px-6 bg-brand-surface/30"
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-20">

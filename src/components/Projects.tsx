@@ -33,10 +33,10 @@ export default function Projects() {
     <motion.section 
       id="projects" 
       className="py-32 px-6"
-      initial={{ opacity: 0, y: 80 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: false, amount: 0.1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -58,8 +58,8 @@ export default function Projects() {
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              viewport={{ once: false }}
+              transition={{ delay: index * 0.1, duration: 0.8, ease: "easeOut" }}
               className={`group relative overflow-hidden rounded-3xl border border-brand-border bg-brand-surface ${project.className}`}
             >
               <div className="absolute inset-x-0 bottom-0 z-20 p-8 pt-32 bg-gradient-to-t from-brand-bg via-brand-bg/90 to-transparent">

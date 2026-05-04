@@ -31,7 +31,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
           className="space-y-6"
         >
           <div className="flex items-center gap-3">

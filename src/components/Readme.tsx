@@ -31,7 +31,7 @@ export default function Readme() {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.1 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
     >
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
@@ -48,7 +48,7 @@ export default function Readme() {
               initial={{ opacity: 0, y: 50, scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
               className="space-y-6"
             >
               <h3 className="text-4xl md:text-6xl font-display text-white leading-tight">
@@ -69,9 +69,9 @@ export default function Readme() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ 
-                    duration: 2.2, 
+                    duration: 1.2, 
                     delay: 0.3 + (i * 0.25), 
-                    ease: [0.16, 1, 0.3, 1] 
+                    ease: "easeOut" 
                   }}
                   className="p-8 rounded-3xl border border-brand-border bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-1000 group"
                 >

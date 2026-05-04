@@ -80,10 +80,10 @@ export default function Skills() {
   return (
     <motion.section 
       className="py-32 px-6 overflow-hidden"
-      initial={{ opacity: 0, y: 80 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: false, amount: 0.1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="text-center space-y-4 mb-20">
