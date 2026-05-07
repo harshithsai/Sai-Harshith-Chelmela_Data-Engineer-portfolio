@@ -1,10 +1,39 @@
 import { useState, useEffect } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { ArrowDownRight, Github, Linkedin, Database, BarChart3, FileText } from "lucide-react";
+
+const HEADLINES = [
+  {
+    main: "ENGINEERING",
+    gradient: "REAL-TIME DATA",
+    sub: "FOR STRATEGIC INSIGHT."
+  },
+  {
+    main: "ARCHITECTING",
+    gradient: "CLOUD PIPELINES",
+    sub: "FOR SCALABLE SYSTEMS."
+  },
+  {
+    main: "TRANSFORMING",
+    gradient: "BIG DATA",
+    sub: "INTO BUSINESS INTELLIGENCE."
+  },
+  {
+    main: "BUILDING",
+    gradient: "DISTRIBUTED FLOWS",
+    sub: "FOR HIGH PERFORMANCE."
+  },
+  {
+    main: "DELIVERING",
+    gradient: "DATA SOLUTIONS",
+    sub: "THAT DRIVE INNOVATION."
+  }
+];
 
 export default function Hero() {
   const name = "Sai Harshith Chelmela...";
   const [displayText, setDisplayText] = useState("");
+  const [headlineIndex, setHeadlineIndex] = useState(0);
 
   const SOCIAL_LINKS = {
     github: "https://github.com/harshithsai",
@@ -25,6 +54,13 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeadlineIndex((prev) => (prev + 1) % HEADLINES.length);
+    }, 20000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center px-6 pt-[84px] md:pt-[100px] overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -41,11 +77,22 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-light tracking-tighter text-white leading-[0.9]">
-            ENGINEERING <br />
-            <span className="text-gradient font-display font-medium">REAL-TIME DATA</span> <br />
-            FOR STRATEGIC INSIGHT.
-          </h1>
+          <div className="relative h-[250px] md:h-[350px] lg:h-[450px]">
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={headlineIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className="text-6xl md:text-8xl lg:text-9xl font-light tracking-tighter text-white leading-[0.9] absolute top-0 left-0 w-full"
+              >
+                {HEADLINES[headlineIndex].main} <br />
+                <span className="text-gradient font-display font-medium">{HEADLINES[headlineIndex].gradient}</span> <br />
+                {HEADLINES[headlineIndex].sub}
+              </motion.h1>
+            </AnimatePresence>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 pt-12">
             <div className="space-y-6">
