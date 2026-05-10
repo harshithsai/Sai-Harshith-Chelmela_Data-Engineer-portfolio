@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Readme from "./components/Readme";
@@ -100,6 +101,8 @@ export default function App() {
             {/* Dynamic ambient light blobs */}
             <div className="fixed top-0 left-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             <div className="fixed bottom-0 right-1/4 w-[700px] h-[700px] bg-white/5 rounded-full blur-[150px] translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+            
+            <SpeedInsights />
           </div>
         )}
       </AnimatePresence>
